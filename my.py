@@ -335,34 +335,51 @@ def send_telegram_notification(device_name, device_url, image_path=None):
         print("🤷 No users registered to notify.")
         return
 
+    # --- নতুন পরিবর্তন শুরু ---
+    # Markdown-এর বিশেষ ক্যারেক্টারগুলো escape করার জন্য একটি helper ফাংশন
+    def escape_markdown(text):
+        # এই অক্ষরগুলো টেলিগ্রাম MarkdownV2-তে সমস্যা করতে পারে
+        escape_chars = r'_*[]()~`>#+-=|{}.!'
+        return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
+
+    # device_name এবং device_url কে escape করুন
+    safe_device_name = escape_markdown(device_name)
+    safe_device_url = escape_markdown(device_url)
+
     message = (
-        f"🔔 *Found New Device!*\n\n"
-        f"📱 *Name:* {device_name}\n"
-        f"🔗 *Link:* {device_url}"
+        f"🔔 *Found New Device\\!* \n\n" # "!" চিহ্নটিকেও escape করা হলো
+        f"📱 *Name:* {safe_device_name}\n"
+        f"🔗 *Link:* {safe_device_url}"
     )
     
+    # parse_mode এখন 'MarkdownV2' ব্যবহার করা ভালো, কারণ এটি বেশি নির্ভরযোগ্য
+    parse_mode = 'MarkdownV2'
+    # --- নতুন পরিবর্তন শেষ ---
+
     print(f"✉️ Sending notification to {len(user_ids)} users...")
 
     for chat_id in user_ids:
-        # প্রতি ব্যবহারকারীর জন্য আলাদাভাবে পাঠানোর চেষ্টা করা হবে
         try:
             if image_path and os.path.exists(image_path):
                 url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
                 with open(image_path, 'rb' ) as photo:
                     files = {'photo': photo}
-                    data = {'chat_id': chat_id, 'caption': message, 'parse_mode': 'Markdown'}
+                    # parse_mode পরিবর্তন করা হয়েছে
+                    data = {'chat_id': chat_id, 'caption': message, 'parse_mode': parse_mode}
                     response = requests.post(url, data=data, files=files, timeout=30)
                     response.raise_for_status()
             else:
                 url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-                data = {'chat_id': chat_id, 'text': message, 'parse_mode': 'Markdown'}
+                # parse_mode পরিবর্তন করা হয়েছে
+                data = {'chat_id': chat_id, 'text': message, 'parse_mode': parse_mode}
                 response = requests.post(url, data=data, timeout=20 )
                 response.raise_for_status()
             
             print(f"    ✅ Notification sent to {chat_id}")
         except Exception as e:
             print(f"    ❌ Failed to send notification to {chat_id}: {e}")
-        time.sleep(1) # Rate limit এড়ানোর জন্য ছোট বিরতি
+        time.sleep(1)
+
 
 # ---------- Main (টেলিগ্রাম আপডেট হ্যান্ডেলিং যোগ করা হয়েছে) ----------
 if __name__ == "__main__":
