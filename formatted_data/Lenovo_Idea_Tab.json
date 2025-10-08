@@ -1,0 +1,70 @@
+{
+  "Camera": {
+    "Rear:": "8 MP, (wide), AF",
+    "Flash:": "",
+    "Front:": "5 MP",
+    "Folded:": "",
+    "Main camera:": "8 MP, (wide), AF",
+    "Second camera:": "",
+    "Third camera:": "",
+    "Specifications:": "",
+    "Video recording:": "Yes"
+  },
+  "Design": {
+    "Keys:": "Right: Volume control, Lock/Unlock key",
+    "Colors:": "Luna grey, Polar blue",
+    "Folded:": "",
+    "Weight:": "480 g (1.06 lb)",
+    "Materials:": "Glass front, aluminum frame, aluminum back",
+    "Biometrics:": "Accelerometer, proximity (accessories only)",
+    "Dimensions:": "254.6 x 166.2 x 7 mm (10.02 x 6.54 x 0.28 in)",
+    "Resistance:": "Stylus support\nSplash resistant"
+  },
+  "Battery": {
+    "Type:": "Li-Ion",
+    "Capacity:": "7040 mAh",
+    "Charging:": "20W wired",
+    "Max charge speed:": "Wired: 20W"
+  },
+  "Display": {
+    "Size:": "11.0 inches",
+    "Features:": "Accelerometer, proximity (accessories only)",
+    "Resolution:": "2560 x 1600 pixels, 16:10 ratio (~274 ppi density)",
+    "Technology:": "IPS LCD",
+    "Refresh rate:": "90Hz",
+    "Screen-to-body:": "",
+    "Peak brightness:": "",
+    "Front cover display:": ""
+  },
+  "Cellular": {
+    "Technology:": "GSM / HSPA / LTE / 5G",
+    "2G bands:": "GSM 850 / 900 / 1800 / 1900 - cellular model only",
+    "3G bands:": "HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100 / 1800 - cellular model only",
+    "4G bands:": "1, 2, 3, 4, 5, 7, 8, 12, 13, 18, 19, 20, 25, 26, 28, 38, 40, 41, 66 - cellular model only",
+    "5G bands:": "1, 2, 3, 5, 7, 8, 20, 26, 28, 38, 40, 41, 66, 71, 77, 78 SA/NSA/Sub6 - cellular model only",
+    "SIM type:": "Nano-SIM - cellular model only"
+  },
+  "Hardware": {
+    "OS:": "Android 15, up to 2 major Android upgrades",
+    "GPU:": "Mali-G57 MC2",
+    "RAM:": "4GB",
+    "Processor:": "Mediatek Dimensity 6300 (6 nm)",
+    "Device type:": "Smartphone",
+    "Internal storage:": "128GB (UFS)"
+  },
+  "Multimedia": {
+    "Speakers:": "Yes, with stereo speakers, Dolby Atmos (4 speakers)",
+    "Headphones:": "Yes",
+    "Screen mirroring:": "Wireless screen share",
+    "Additional microphone(s):": ""
+  },
+  "Connectivity & Features": {
+    "USB:": "USB Type-C 2.0, accessory connector pins",
+    "Other:": "NFC",
+    "Wi-Fi:": "Wi-Fi 802.11 a/b/g/n/ac, Wi-Fi Direct",
+    "Sensors:": "Accelerometer, proximity (accessories only)",
+    "Features:": "USB Type-C 2.0, accessory connector pins",
+    "Location:": "GPS, GALILEO, GLONASS",
+    "Bluetooth:": "5.2, A2DP, LE"
+  }
+}
