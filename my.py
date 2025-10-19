@@ -3,17 +3,18 @@ import re
 import json
 import csv
 import requests
-import time # নতুন করে যোগ করা হয়েছে
+import time 
 from PIL import Image
 from io import BytesIO
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+import re
+from pathlib import Path
 
 # --- Configuration ---
 CSV_FILE_NAME = "scraped_devices.csv"
-USER_IDS_FILE = "user_ids.json" # নতুন ফাইল ব্যবহারকারীদের জন্য
+USER_IDS_FILE = "user_ids.json" 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-# TELEGRAM_CHAT_ID এখন আর প্রয়োজন নেই, তাই এটি কমেন্ট আউট করা হলো
-# TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
 
 # ---------- Utility (Telegram অংশ যোগ করা হয়েছে) ----------
 
@@ -31,68 +32,87 @@ def load_user_ids():
         return set()
 
 def save_user_ids(user_ids):
-    """ব্যবহারকারীদের Chat ID সেভ করে user_ids.json ফাইলে।"""
+    """Chat ID save in user_ids.json """
     with open(USER_IDS_FILE, "w") as f:
         json.dump(list(user_ids), f, indent=2)
 
 def handle_telegram_updates():
-    """নতুন ব্যবহারকারীদের /start কমান্ড হ্যান্ডেল করে এবং তাদের রেজিস্টার করে।"""
+    """নতুন Telegram ইউজারদের হ্যান্ডেল করে ও user_ids.json ফাইলে সংরক্ষণ করে।"""
     if not TELEGRAM_BOT_TOKEN:
+        print("⚠️ Telegram bot token সেট করা হয়নি।")
         return
 
-    # শেষ update_id ট্র্যাক করার জন্য একটি ফাইল
+    user_ids = load_user_ids()
     last_update_file = "last_update_id.txt"
-    last_update_id = 0
+
+    # পুরনো update_id পড়া (না থাকলে 0)
     if os.path.exists(last_update_file):
-        with open(last_update_file, "r") as f:
-            try:
-                last_update_id = int(f.read().strip())
-            except ValueError:
-                last_update_id = 0
+        try:
+            with open(last_update_file, "r") as f:
+                last_update_id = int(f.read().strip() or 0)
+        except ValueError:
+            last_update_id = 0
+    else:
+        last_update_id = 0
 
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates?offset={last_update_id + 1}&timeout=5"
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates?offset={last_update_id + 1}&timeout=10"
+
     try:
-        response = requests.get(url, timeout=10 )
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
         updates = response.json().get("result", [])
-
-        if not updates:
-            print("👍 No new Telegram messages.")
-            return
-
-        user_ids = load_user_ids()
-        new_users_found = False
-
-        for update in updates:
-            if "message" in update and "text" in update["message"]:
-                chat_id = update["message"]["chat"]["id"]
-                text = update["message"]["text"]
-                first_name = update["message"]["from"].get("first_name", "Friend")
-
-                if text == "/start":
-                    if chat_id not in user_ids:
-                        user_ids.add(chat_id)
-                        new_users_found = True
-                        print(f"✅ New user registered: {chat_id} ({first_name})")
-                        # নতুন ব্যবহারকারীকে স্বাগত বার্তা
-                        welcome_message = f"Welcome, {first_name}! You will now receive notifications for new devices."
-                        try:
-                            send_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-                            payload = {"chat_id": chat_id, "text": welcome_message}
-                            requests.post(send_url, json=payload, timeout=10 )
-                        except Exception as e:
-                            print(f"❌ Failed to send welcome message to {chat_id}: {e}")
-
-            # সর্বশেষ update_id সেভ করা
-            last_update_id = update["update_id"]
-
-        if new_users_found:
-            save_user_ids(user_ids)
-        
-        with open(last_update_file, "w") as f:
-            f.write(str(last_update_id))
-
     except Exception as e:
-        print(f"❌ Error checking Telegram updates: {e}")
+        print(f"❌ Telegram API error: {e}")
+        return
+
+    if not updates:
+        print("👍 No new Telegram messages.")
+        return
+
+    new_users_found = False
+    max_update_id = last_update_id
+
+    for update in updates:
+        max_update_id = max(max_update_id, update["update_id"])
+        msg = update.get("message", {})
+        text = msg.get("text", "")
+        chat = msg.get("chat", {})
+        chat_id = chat.get("id")
+        first_name = msg.get("from", {}).get("first_name", "Friend")
+
+        if not chat_id or not text:
+            continue
+
+        if text.strip().lower() == "/start":
+            if chat_id not in user_ids:
+                user_ids.add(chat_id)
+                new_users_found = True
+                print(f"✅ New user registered: {chat_id} ({first_name})")
+
+                # Welcome message পাঠানো
+                welcome_text = (
+                    f"👋 Welcome, {first_name}!\n\n"
+                    "You are now subscribed to receive notifications "
+                    "for *newly released devices* from GSMArena 📱✨"
+                )
+
+                try:
+                    send_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+                    payload = {"chat_id": chat_id, "text": welcome_text, "parse_mode": "Markdown"}
+                    requests.post(send_url, json=payload, timeout=10)
+                except Exception as e:
+                    print(f"❌ Failed to send welcome message to {chat_id}: {e}")
+
+    # নতুন ইউজার থাকলে সেভ করো
+    if new_users_found:
+        save_user_ids(user_ids)
+        print(f"💾 Saved {len(user_ids)} total users to user_ids.json")
+
+    # সর্বশেষ update_id সংরক্ষণ করো
+    with open(last_update_file, "w") as f:
+        f.write(str(max_update_id))
+
+    print("✅ Telegram updates handled successfully.")
 
 
 def ensure_folder(path):
@@ -323,9 +343,21 @@ def transform_gsmarena_to_formatted(data):
         "Hardware": hardware_data, "Multimedia": multimedia_data, "Connectivity & Features": connectivity_data
     }
 
-# ---------- Telegram Notification (ডায়নামিক করা হয়েছে) ----------
+# ---------- Telegram Notification ----------
+
+
+def sanitize_filename(name):
+    """Telegram API-তে পাঠানোর আগে ফাইলনেম safe করে ফেলা।"""
+    name = name.replace('+',"_plus")
+    name = re.sub(r'[^a-zA-Z0-9 _.-]', '', name)
+    return name
+
+def safe_markdown(text):
+    """Markdown parse error এড়াতে কিছু স্পেশাল ক্যারেক্টার escape করা।"""
+    return re.sub(r'([_*[\]()~`>#+=|{}.!-])', r'\\\1', text)
+
 def send_telegram_notification(device_name, device_url, image_path=None):
-    """Sends a notification to all registered users."""
+    """Sends a notification to all registered users safely."""
     if not TELEGRAM_BOT_TOKEN:
         print("⚠️ Telegram token not configured. Skipping notification.")
         return
@@ -335,50 +367,52 @@ def send_telegram_notification(device_name, device_url, image_path=None):
         print("🤷 No users registered to notify.")
         return
 
-    # --- নতুন পরিবর্তন শুরু ---
-    # Markdown-এর বিশেষ ক্যারেক্টারগুলো escape করার জন্য একটি helper ফাংশন
-    def escape_markdown(text):
-        # এই অক্ষরগুলো টেলিগ্রাম MarkdownV2-তে সমস্যা করতে পারে
-        escape_chars = r'_*[]()~`>#+-=|{}.!'
-        return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
-
-    # device_name এবং device_url কে escape করুন
-    safe_device_name = escape_markdown(device_name)
-    safe_device_url = escape_markdown(device_url)
-
+    # Markdown-safe message বানানো
     message = (
-        f"🔔 *Found New Device\\!* \n\n" # "!" চিহ্নটিকেও escape করা হলো
-        f"📱 *Name:* {safe_device_name}\n"
-        f"🔗 *Link:* {safe_device_url}"
+        f"🔔 *Found New Device!*\n\n"
+        f"📱 *Name:* {safe_markdown(device_name)}\n"
+        f"🔗 [View on GSMArena]({device_url})"
     )
     
-    # parse_mode এখন 'MarkdownV2' ব্যবহার করা ভালো, কারণ এটি বেশি নির্ভরযোগ্য
-    parse_mode = 'MarkdownV2'
-    # --- নতুন পরিবর্তন শেষ ---
-
     print(f"✉️ Sending notification to {len(user_ids)} users...")
+    success = 0
+    fail = 0
 
     for chat_id in user_ids:
         try:
             if image_path and os.path.exists(image_path):
+                # filename sanitize করা
+                image_path = Path(image_path)
+                safe_filename = sanitize_filename(image_path.name)
+                safe_path = image_path.with_name(safe_filename)
+                if safe_path != image_path:
+                    os.rename(image_path, safe_path)
+
                 url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
-                with open(image_path, 'rb' ) as photo:
+                with open(safe_path, 'rb') as photo:
                     files = {'photo': photo}
-                    # parse_mode পরিবর্তন করা হয়েছে
-                    data = {'chat_id': chat_id, 'caption': message, 'parse_mode': parse_mode}
+                    data = {
+                        'chat_id': chat_id,
+                        'caption': message,
+                        'parse_mode': 'Markdown'
+                    }
                     response = requests.post(url, data=data, files=files, timeout=30)
                     response.raise_for_status()
             else:
                 url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-                # parse_mode পরিবর্তন করা হয়েছে
-                data = {'chat_id': chat_id, 'text': message, 'parse_mode': parse_mode}
-                response = requests.post(url, data=data, timeout=20 )
+                data = {
+                    'chat_id': chat_id,
+                    'text': message,
+                    'parse_mode': 'Markdown'
+                }
+                response = requests.post(url, data=data, timeout=20)
                 response.raise_for_status()
-            
-            print(f"    ✅ Notification sent to {chat_id}")
+
+            success += 1
+            time.sleep(1)
         except Exception as e:
-            print(f"    ❌ Failed to send notification to {chat_id}: {e}")
-        time.sleep(1)
+            fail += 1
+    print(f"    ✅ Sent to {success} users, ❌ Failed for {fail}")
 
 
 # ---------- Main (টেলিগ্রাম আপডেট হ্যান্ডেলিং যোগ করা হয়েছে) ----------
