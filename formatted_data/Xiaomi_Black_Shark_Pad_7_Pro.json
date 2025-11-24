@@ -1,0 +1,70 @@
+{
+  "Camera": {
+    "Rear:": "13 MP",
+    "Flash:": "LED flash",
+    "Front:": "8 MP",
+    "Folded:": "",
+    "Main camera:": "13 MP",
+    "Second camera:": "2 MP",
+    "Third camera:": "",
+    "Specifications:": "",
+    "Video recording:": "1080p@30fps"
+  },
+  "Design": {
+    "Keys:": "Right: Volume control, Lock/Unlock key",
+    "Colors:": "Gray, Blue",
+    "Folded:": "",
+    "Weight:": "513 g (1.13 lb)",
+    "Materials:": "Glass front, aluminum back, aluminum frame",
+    "Biometrics:": "Accelerometer",
+    "Dimensions:": "-",
+    "Resistance:": ""
+  },
+  "Battery": {
+    "Type:": "",
+    "Capacity:": "8800 mAh",
+    "Charging:": "",
+    "Max charge speed:": ""
+  },
+  "Display": {
+    "Size:": "11.0 inches",
+    "Features:": "Accelerometer",
+    "Resolution:": "1200 x 1900 pixels, 16:10 ratio (~204 ppi density)",
+    "Technology:": "IPS LCD",
+    "Refresh rate:": "120Hz",
+    "Screen-to-body:": "",
+    "Peak brightness:": "",
+    "Front cover display:": ""
+  },
+  "Cellular": {
+    "Technology:": "GSM / HSPA / LTE",
+    "2G bands:": "GSM 850 / 900 / 1800 / 1900",
+    "3G bands:": "HSDPA 850 / 900 / 2100",
+    "4G bands:": "LTE",
+    "5G bands:": "",
+    "SIM type:": "Nano-SIM"
+  },
+  "Hardware": {
+    "OS:": "Android 15",
+    "GPU:": "Mali-G57 MC2",
+    "RAM:": "8GB",
+    "Processor:": "Mediatek Helio G100 (6 nm)",
+    "Device type:": "Smartphone",
+    "Internal storage:": "256GB (UFS)"
+  },
+  "Multimedia": {
+    "Speakers:": "Yes, with stereo speakers (4 speakers)",
+    "Headphones:": "No",
+    "Screen mirroring:": "Wireless screen share",
+    "Additional microphone(s):": ""
+  },
+  "Connectivity & Features": {
+    "USB:": "USB Type-C, magnetic accessory connector pins",
+    "Other:": "NFC",
+    "Wi-Fi:": "Yes",
+    "Sensors:": "Accelerometer",
+    "Features:": "USB Type-C, magnetic accessory connector pins",
+    "Location:": "GPS",
+    "Bluetooth:": "Yes"
+  }
+}

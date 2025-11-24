@@ -1,0 +1,80 @@
+{
+  "url": "https://www.gsmarena.com/xiaomi_black_shark_pad_7_pro-14308.php",
+  "name": "Xiaomi Black Shark Pad 7 Pro",
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-black-shark-pad-7-pro.jpg",
+  "highlights": [
+    "Released 2025, November\n513 g\nAndroid 15\n256GB storage, microSDXC",
+    "1.7%\n665 HITS",
+    "2\nBECOME A FAN",
+    "11.0\"\n1200x1900 pixels",
+    "13MP\n1080p",
+    "8GB RAM\nHelio G100",
+    "8800mAh"
+  ],
+  "specs": {
+    "NETWORK": {
+      "Technology": "GSM / HSPA / LTE",
+      "2G bands": "GSM 850 / 900 / 1800 / 1900",
+      "3G bands": "HSDPA 850 / 900 / 2100",
+      "4G bands": "LTE",
+      "Speed": "HSPA, LTE"
+    },
+    "LAUNCH": {
+      "Announced": "2025, October 30",
+      "Status": "Available. Released 2025, November"
+    },
+    "BODY": {
+      "Dimensions": "-",
+      "Weight": "513 g (1.13 lb)",
+      "Build": "Glass front, aluminum back, aluminum frame",
+      "SIM": "Nano-SIM"
+    },
+    "DISPLAY": {
+      "Type": "IPS LCD, 120Hz, 420 nits",
+      "Size": "11.0 inches, 352.4 cm2",
+      "Resolution": "1200 x 1900 pixels, 16:10 ratio (~204 ppi density)"
+    },
+    "PLATFORM": {
+      "OS": "Android 15",
+      "Chipset": "Mediatek Helio G100 (6 nm)",
+      "CPU": "Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)",
+      "GPU": "Mali-G57 MC2"
+    },
+    "MEMORY": {
+      "Card slot": "microSDXC",
+      "Internal": "256GB 8GB RAM",
+      "": "UFS 2.2"
+    },
+    "MAIN CAMERA": {
+      "Dual": "13 MP\n2 MP",
+      "Features": "LED flash",
+      "Video": "1080p@30fps"
+    },
+    "SELFIE CAMERA": {
+      "Single": "8 MP",
+      "Video": "1080p@30fps"
+    },
+    "SOUND": {
+      "Loudspeaker": "Yes, with stereo speakers (4 speakers)",
+      "3.5mm jack": "No"
+    },
+    "COMMS": {
+      "WLAN": "Yes",
+      "Bluetooth": "Yes",
+      "Positioning": "GPS",
+      "NFC": "No",
+      "Radio": "No",
+      "USB": "USB Type-C, magnetic accessory connector pins"
+    },
+    "FEATURES": {
+      "Sensors": "Accelerometer"
+    },
+    "BATTERY": {
+      "Type": "8800 mAh"
+    },
+    "MISC": {
+      "Colors": "Gray, Blue",
+      "Price": "About 200 EUR"
+    }
+  }
+}
