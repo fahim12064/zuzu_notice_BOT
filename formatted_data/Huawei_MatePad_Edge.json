@@ -1,0 +1,70 @@
+{
+  "Camera": {
+    "Rear:": "50 MP, f/1.8, (wide), PDAF",
+    "Flash:": "Color spectrum sensor, LED flash, HDR, panorama",
+    "Front:": "32 MP, f/2.4",
+    "Folded:": "",
+    "Main camera:": "50 MP, f/1.8, (wide), PDAF",
+    "Second camera:": "8 MP, f/2.2, (ultrawide)",
+    "Third camera:": "",
+    "Specifications:": "Aperture size: F/1.8",
+    "Video recording:": "4K@30fps, 1080p@30fps"
+  },
+  "Design": {
+    "Keys:": "Right: Volume control, Lock/Unlock key",
+    "Colors:": "Gray, Silver",
+    "Folded:": "",
+    "Weight:": "789 g (1.74 lb)",
+    "Materials:": "",
+    "Biometrics:": "Fingerprint, accelerometer, gyro, proximity (accessories only)",
+    "Dimensions:": "312.1 x 212 x 6.9 mm (12.29 x 8.35 x 0.27 in)",
+    "Resistance:": "Stylus support\nBuilt-in kickstand"
+  },
+  "Battery": {
+    "Type:": "",
+    "Capacity:": "12900 mAh",
+    "Charging:": "140W wired\n40W reverse wired",
+    "Max charge speed:": "Wired: 140W"
+  },
+  "Display": {
+    "Size:": "14.2 inches",
+    "Features:": "Fingerprint, accelerometer, gyro, proximity (accessories only)",
+    "Resolution:": "3120 x 2080 pixels, 3:2 ratio (~264 ppi density)",
+    "Technology:": "OLED",
+    "Refresh rate:": "120Hz",
+    "Screen-to-body:": "",
+    "Peak brightness:": "1000 cd/m2 (nit)",
+    "Front cover display:": ""
+  },
+  "Cellular": {
+    "Technology:": "No cellular connectivity",
+    "2G bands:": "N/A",
+    "3G bands:": "N/A",
+    "4G bands:": "N/A",
+    "5G bands:": "",
+    "SIM type:": "No"
+  },
+  "Hardware": {
+    "OS:": "HarmonyOS 5.1",
+    "GPU:": "",
+    "RAM:": "16GB",
+    "Processor:": "Kirin X90A",
+    "Device type:": "Smartphone",
+    "Internal storage:": "256GB (UFS), not expandable"
+  },
+  "Multimedia": {
+    "Speakers:": "Yes, with stereo speakers (6 speakers)",
+    "Headphones:": "No",
+    "Screen mirroring:": "Wireless screen share",
+    "Additional microphone(s):": ""
+  },
+  "Connectivity & Features": {
+    "USB:": "USB Type-C 3.1, OTG",
+    "Other:": "NFC",
+    "Wi-Fi:": "Wi-Fi 802.11 a/b/g/n/ac/6/7, dual-band",
+    "Sensors:": "Fingerprint, accelerometer, gyro, proximity (accessories only)",
+    "Features:": "USB Type-C 3.1, OTG",
+    "Location:": "No",
+    "Bluetooth:": "5.2, A2DP, LE, L2HC"
+  }
+}
