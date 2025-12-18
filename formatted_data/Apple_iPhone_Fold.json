@@ -1,0 +1,70 @@
+{
+  "Camera": {
+    "Rear:": "48 MP, f/1.8, 24mm (wide), 1/1.28\", 1.22µm, dual pixel PDAF, sensor-shift OIS",
+    "Flash:": "Dual-LED dual-tone flash, HDR (photo/panorama)",
+    "Front:": "4 MP, f/1.8, 26mm (wide), 1/3.0\", 2.0µm, under display\nCover camera:\n12 MP, f/1.9, 23mm (wide), 1/3.6\", 1.0µm, PDAF, OIS",
+    "Folded:": "",
+    "Main camera:": "48 MP, f/1.8, 24mm (wide), 1/1.28\", 1.22µm, dual pixel PDAF, sensor-shift OIS",
+    "Second camera:": "48 MP, f/2.2, 13mm (ultrawide), 1/2.55\", 0.7µm, PDAF",
+    "Third camera:": "* camera details are illustrative, no rumored information is available",
+    "Specifications:": "Aperture size: F/1.8 Focal Length: 24mm",
+    "Video recording:": "4K@24/25/30/60/100/120fps, 1080p@25/30/60/120/240fps, 10-bit HDR, Dolby Vision HDR (up to 60fps), ProRes, 3D (spatial) video/audio, stereo sound rec."
+  },
+  "Design": {
+    "Keys:": "Right: Volume control, Lock/Unlock key",
+    "Colors:": "Black; other colors",
+    "Folded:": "",
+    "Weight:": "-",
+    "Materials:": "Amorphous alloy frame",
+    "Biometrics:": "Fingerprint (side-mounted), accelerometer, gyro, proximity, compass, barometer",
+    "Dimensions:": "Unfolded: 120.6 x 167.6 x 4.8 mm\nFolded: 120.6 x 83.8 x 9.6 mm",
+    "Resistance:": "Apple Pay (Visa, MasterCard, AMEX certified)"
+  },
+  "Battery": {
+    "Type:": "5500-",
+    "Capacity:": "6000 mAh",
+    "Charging:": "Wired",
+    "Max charge speed:": ""
+  },
+  "Display": {
+    "Size:": "7.76 inches",
+    "Features:": "Fingerprint (side-mounted), accelerometer, gyro, proximity, compass, barometer",
+    "Resolution:": "1920 x 2713 pixels (~428 ppi density)",
+    "Technology:": "Foldable LTPO OLED",
+    "Refresh rate:": "120Hz",
+    "Screen-to-body:": "",
+    "Peak brightness:": "",
+    "Front cover display:": ""
+  },
+  "Cellular": {
+    "Technology:": "GSM / CDMA / HSPA / EVDO / LTE / 5G",
+    "2G bands:": "GSM 850 / 900 / 1800 / 1900",
+    "3G bands:": "HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100",
+    "4G bands:": "LTE",
+    "5G bands:": "SA/NSA/Sub6",
+    "SIM type:": "eSIM"
+  },
+  "Hardware": {
+    "OS:": "iOS",
+    "GPU:": "",
+    "RAM:": "12GB",
+    "Processor:": "3 nm",
+    "Device type:": "Smartphone",
+    "Internal storage:": "256GB (UFS), not expandable"
+  },
+  "Multimedia": {
+    "Speakers:": "Yes, with stereo speakers",
+    "Headphones:": "No",
+    "Screen mirroring:": "Wireless screen share",
+    "Additional microphone(s):": ""
+  },
+  "Connectivity & Features": {
+    "USB:": "USB Type-C",
+    "Other:": "NFC",
+    "Wi-Fi:": "Wi-Fi 802.11 a/b/g/n/ac/6e/7, tri-band, hotspot",
+    "Sensors:": "Fingerprint (side-mounted), accelerometer, gyro, proximity, compass, barometer",
+    "Features:": "USB Type-C",
+    "Location:": "GPS (L1+L5), GLONASS, GALILEO, BDS, QZSS, NavIC",
+    "Bluetooth:": "5.3, A2DP, LE"
+  }
+}
