@@ -1,15 +1,15 @@
 {
-  "url": "https://www.gsmarena.com/oppo_a6x_5g_(global)-14414.php",
-  "name": "Oppo A6x",
-  "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6x-int.jpg",
+  "url": "https://www.gsmarena.com/oppo_a6_5g-14412.php",
+  "name": "Oppo A6",
+  "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-a6.jpg",
   "highlights": [
-    "Released 2026, January 13\n212g, 8.6mm thickness\nAndroid 15, ColorOS 15\n128GB/256GB storage, microSDXC",
-    "1.0%\n306 HITS",
-    "0\nBECOME A FAN",
+    "Released 2026, January 13\n216g, 8.6mm thickness\nAndroid 15, ColorOS 15\n128GB/256GB storage, microSDXC",
+    "5.2%\n1,362 HITS",
+    "1\nBECOME A FAN",
     "6.75\"\n720x1570 pixels",
     "50MP\n1080p",
-    "4-8GB RAM\nDimensity 6300",
-    "6500mAh"
+    "6-12GB RAM\nDimensity 6300",
+    "7000mAh\n45W"
   ],
   "specs": {
     "NETWORK": {
@@ -26,9 +26,9 @@
     },
     "BODY": {
       "Dimensions": "166.6 x 78.5 x 8.6 mm (6.56 x 3.09 x 0.34 in)",
-      "Weight": "212 g (7.48 oz)",
+      "Weight": "216 g (7.62 oz)",
       "SIM": "Nano-SIM + Nano-SIM",
-      "": "IP64 dust tight and water resistant (water splashes)"
+      "": "IP68/IP69 dust tight and water resistant (high pressure water jets; immersible up to 1.5m for 30 min)"
     },
     "DISPLAY": {
       "Type": "IPS LCD, 120Hz, 1125 nits (HBM)",
@@ -43,7 +43,7 @@
     },
     "MEMORY": {
       "Card slot": "microSDXC",
-      "Internal": "128GB 4GB RAM, 128GB 6GB RAM, 256GB 4GB RAM, 256GB 6GB RAM, 256GB 8GB RAM",
+      "Internal": "128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM",
       "": "UFS 2.2"
     },
     "MAIN CAMERA": {
@@ -52,13 +52,13 @@
       "Video": "1080p@30/60fps"
     },
     "SELFIE CAMERA": {
-      "Single": "5 MP, f/2.2, (wide)",
+      "Single": "8 MP, f/2.0, (wide)",
       "Features": "Panorama",
       "Video": "1080p@30fps"
     },
     "SOUND": {
-      "Loudspeaker": "Yes",
-      "3.5mm jack": "Yes"
+      "Loudspeaker": "Yes, with stereo speakers",
+      "3.5mm jack": "No"
     },
     "COMMS": {
       "WLAN": "Wi-Fi 802.11 a/b/g/n/ac, dual-band",
@@ -72,12 +72,12 @@
       "Sensors": "Fingerprint (side-mounted), accelerometer, proximity, compass"
     },
     "BATTERY": {
-      "Type": "6500 mAh",
-      "Charging": "Wired\nReverse wired"
+      "Type": "Si/C Li-Ion 7000 mAh",
+      "Charging": "45W wired, 33W PPS, 13.5W PD, 37% in 30 min\nReverse wired"
     },
     "MISC": {
-      "Colors": "Plum Purple, Violet Purple",
-      "Models": "CPH2783"
+      "Colors": "Sapphire Blue, Sakura Pink",
+      "Models": "CPH2831"
     }
   }
 }

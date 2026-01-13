@@ -2,7 +2,7 @@
   "Camera": {
     "Rear:": "50 MP, f/1.8, (wide), PDAF",
     "Flash:": "LED flash, HDR, panorama",
-    "Front:": "5 MP, f/2.2, (wide)",
+    "Front:": "8 MP, f/2.0, (wide)",
     "Folded:": "",
     "Main camera:": "50 MP, f/1.8, (wide), PDAF",
     "Second camera:": "Auxiliary lens",
@@ -12,19 +12,19 @@
   },
   "Design": {
     "Keys:": "Right: Volume control, Lock/Unlock key",
-    "Colors:": "Plum Purple, Violet Purple",
+    "Colors:": "Sapphire Blue, Sakura Pink",
     "Folded:": "",
-    "Weight:": "212 g (7.48 oz)",
+    "Weight:": "216 g (7.62 oz)",
     "Materials:": "",
     "Biometrics:": "Fingerprint (side-mounted), accelerometer, proximity, compass",
     "Dimensions:": "166.6 x 78.5 x 8.6 mm (6.56 x 3.09 x 0.34 in)",
-    "Resistance:": "IP64 dust tight and water resistant (water splashes)"
+    "Resistance:": "IP68/IP69 dust tight and water resistant (high pressure water jets; immersible up to 1.5m for 30 min)"
   },
   "Battery": {
-    "Type:": "",
-    "Capacity:": "6500 mAh",
-    "Charging:": "Wired\nReverse wired",
-    "Max charge speed:": ""
+    "Type:": "Si/C Li-Ion",
+    "Capacity:": "7000 mAh",
+    "Charging:": "45W wired, 33W PPS, 13.5W PD, 37% in 30 min\nReverse wired",
+    "Max charge speed:": "Wired: 45W"
   },
   "Display": {
     "Size:": "6.75 inches",
@@ -47,14 +47,14 @@
   "Hardware": {
     "OS:": "Android 15, ColorOS 15",
     "GPU:": "Mali-G57 MC2",
-    "RAM:": "4GB",
+    "RAM:": "6GB",
     "Processor:": "Mediatek Dimensity 6300 (6 nm)",
     "Device type:": "Smartphone",
     "Internal storage:": "128GB (UFS)"
   },
   "Multimedia": {
-    "Speakers:": "Yes",
-    "Headphones:": "Yes",
+    "Speakers:": "Yes, with stereo speakers",
+    "Headphones:": "No",
     "Screen mirroring:": "Wireless screen share",
     "Additional microphone(s):": ""
   },
